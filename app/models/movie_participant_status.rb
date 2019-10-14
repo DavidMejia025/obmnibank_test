@@ -1,0 +1,2 @@
+class MovieParticipantStatus < ApplicationRecord
+end

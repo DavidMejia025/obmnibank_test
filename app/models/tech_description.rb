@@ -1,0 +1,2 @@
+class TechDescription < ApplicationRecord
+end

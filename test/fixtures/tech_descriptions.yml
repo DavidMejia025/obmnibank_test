@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  movie_id: 1
+  sound: MyString
+  color: false
+  camera: MyString
+  format: MyString
+  duration_min: 1
+
+two:
+  movie_id: 1
+  sound: MyString
+  color: false
+  camera: MyString
+  format: MyString
+  duration_min: 1

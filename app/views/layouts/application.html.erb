@@ -10,17 +10,42 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Expensify</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="<%= 'active' if @tab == :dashboard %>"><%= link_to "Dashboard", root_path %></li>
+            <li class="<%= 'active' if @tab == :expenses %>"><%= link_to "Expenses", root_path %></li>
+            <% if user_signed_in?%>
+             <h4> Hola <%= current_user.email %> I hope that you have a great day </h4>
+            <% end %>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in?%>
+              <%= link_to "Logout", destroy_user_session_path, :method => :delete, :class => 'navbar-link'  %>
+            <% else %>
+              <li><a href="/users/sign_up"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+              <li><a href="/users/sign_in"><span class="glyphicon glyphicon-log-in"></span> Login </a></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
     <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    
-    <div>
-      <% if signed_in? %>
-        <%= link_to "Salir", destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to "Registrarse", new_user_registration_path %>
-        <%= link_to "Ingresar", new_user_session_path %>
-      <% end %>
-    </div>
+       <p class="alert"><%= alert %></p>
+
     <%= yield %>
   </body>
 </html>

@@ -15,59 +15,6 @@ ActiveRecord::Schema.define(version: 2019_10_14_034622) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "albums", force: :cascade do |t|
-    t.integer "artist_id"
-    t.string "name"
-    t.string "image"
-    t.string "spotify_url"
-    t.integer "total_tracks"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "spotify_id"
-  end
-
-  create_table "artists", force: :cascade do |t|
-    t.string "name"
-    t.string "image"
-    t.integer "popularity"
-    t.string "spotify_url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "spotify_id"
-  end
-
-  create_table "artists_genres", force: :cascade do |t|
-    t.bigint "artist_id"
-    t.bigint "genre_id"
-    t.index ["artist_id"], name: "index_artists_genres_on_artist_id"
-    t.index ["genre_id"], name: "index_artists_genres_on_genre_id"
-  end
-
-  create_table "artists_songs", force: :cascade do |t|
-    t.bigint "artist_id"
-    t.bigint "song_id"
-    t.index ["artist_id"], name: "index_artists_songs_on_artist_id"
-    t.index ["song_id"], name: "index_artists_songs_on_song_id"
-  end
-
-  create_table "genres", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "songs", force: :cascade do |t|
-    t.integer "genre_id"
-    t.integer "album_id"
-    t.string "name"
-    t.string "spotify_url"
-    t.string "preview_url"
-    t.integer "duration_ms"
-    t.boolean "explicit"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false

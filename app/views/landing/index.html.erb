@@ -2,9 +2,27 @@
   <div class="row" style="margin-top: 40px;">
     <div class="box col-md-9">
       <div class="panel panel-default">
-        <div class="panel-heading">On demand Movies</div>
-        <div class="panel-body">
-          <div id="chartContainer" style="height: 250px;"></div>
+        <div class="panel-heading">New Movies on demand</div>
+        <div class="panel-body_index">
+            <div class="movies_list">
+              <% if @movies.any? %>
+                <% if @movies.count > 5 %>
+                  <% 6.times do %>
+                     <div class = "movie_index_img">
+                        <img src= <%= @movies[i].image %> >
+                     </div>
+                    <% end %>
+                <% else %>
+                  <% @movies.each do |movie| %>
+                    <% unless movie.nil? %>
+                       <div class = "movie_index_img">
+                        <img src= <%= movie.image %> >
+                     </div>
+                    <% end %>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

@@ -32,6 +32,10 @@
 #      rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
 
 Rails.application.routes.draw do
+  get 'movies/index'
+  get 'movies/show'
+  get 'movies/edit'
+  get 'movies/delete'
   root "landing#index"
   devise_for :users
 

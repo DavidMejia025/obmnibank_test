@@ -35,7 +35,7 @@ class TheMovieDbService
     def get_image(movie)
       image_url = movie["poster_path"]
 
-      @base_url + image_url.gsub(/\//,"") if image_url
+      @base_url + "w500" + image_url if image_url     
     end
     
     def get_country(movie)

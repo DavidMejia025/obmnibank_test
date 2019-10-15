@@ -11,11 +11,10 @@ Movie.destroy_all
 MovieStatus.destroy_all
 Recomendation.destroy_all
 
-puts "Foooooooooo"
 #Create default movies
-20.times do |i|
+6.times do |i|
   movie_data_base = TheMovieDbService.new
-  movie_info     = movie_data_base.get_movie_info(id: rand(400..500))
+  movie_info      = movie_data_base.get_movie_info(id: rand(400..500))
   
   unless movie_info[:name].nil?
     Movie.create!(
@@ -33,9 +32,8 @@ end
 
 user = User.create!(email: "michael@one.com", password: "123456")
 
-movie_data_base = TheMovieDbService.new
-
-8.times do |i|
+3.times do |i|
+  movie_data_base = TheMovieDbService.new
   movie_info = movie_data_base.get_movie_info(id: rand(400..500))
   
   unless movie_info[:name].nil?

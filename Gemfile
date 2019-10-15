@@ -18,7 +18,7 @@ gem 'puma', '~> 3.11'
 # annotate db templates
 gem 'annotate'
 # Use SCSS for stylesheets
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', ">= 3.4.1"
 gem 'sass-rails', '~> 5.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

@@ -20,5 +20,5 @@ class Movie < ApplicationRecord
   has_many :recomendations
   has_many :users, through: :recomendations
 
-  validates :name, :synopsis, presence: true
+  validates :name, presence: true
 end

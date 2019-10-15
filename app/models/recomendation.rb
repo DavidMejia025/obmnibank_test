@@ -15,6 +15,4 @@
 class Recomendation < ApplicationRecord
   belongs_to :user
   belongs_to :movie
-
-  validates :title, :description, presence: true
 end

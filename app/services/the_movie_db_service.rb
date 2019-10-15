@@ -11,7 +11,7 @@ class TheMovieDbService
     
     {
       name:         get_name(movie),
-      country:      get_country(movie), 
+      country:      get_country(movie),
       genres:       get_genres(movie),     
       release:      get_release(movie),
       score:        get_score(movie),
@@ -23,7 +23,9 @@ class TheMovieDbService
   
   private
     def get_genres(movie)
-      movie["genres"].first["name"]
+      genres = movie.dig("genres")
+
+      genres.first["name"] if genres 
     end 
 
     def get_synopsis(movie)
@@ -33,11 +35,13 @@ class TheMovieDbService
     def get_image(movie)
       image_url = movie["poster_path"]
 
-      @base_url + image_url.gsub(/\//,"")
+      @base_url + image_url.gsub(/\//,"") if image_url
     end
     
     def get_country(movie)
-      movie["production_countries"].first["name"]
+      country = movie.dig("production_countries")
+
+      country.first["name"] if country 
     end
     
     def get_release(movie)

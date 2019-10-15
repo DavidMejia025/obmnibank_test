@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: recomendations
+#
+#  id          :bigint           not null, primary key
+#  movie_id    :integer
+#  user_id     :integer
+#  title       :string
+#  description :text
+#  likes       :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:

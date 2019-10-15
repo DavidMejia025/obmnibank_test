@@ -10,10 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_14_034622) do
+ActiveRecord::Schema.define(version: 2019_10_15_001409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "movie_statuses", force: :cascade do |t|
+    t.integer "movie_id"
+    t.integer "user_id"
+    t.boolean "watch_later"
+    t.boolean "watched"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "movies", force: :cascade do |t|
+    t.string "name"
+    t.string "country"
+    t.string "genres"
+    t.date "release"
+    t.integer "score"
+    t.integer "duration_min"
+    t.string "image"
+    t.text "synopsis"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "recomendations", force: :cascade do |t|
+    t.integer "movie_id"
+    t.integer "user_id"
+    t.string "title"
+    t.text "description"
+    t.integer "likes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,6 +55,12 @@ ActiveRecord::Schema.define(version: 2019_10_14_034622) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "gender"
+    t.string "country"
+    t.date "date_of_birth"
+    t.text "description"
+    t.integer "score"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
